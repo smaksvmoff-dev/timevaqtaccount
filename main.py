@@ -19,7 +19,7 @@ async def update_name():
     print("✅ Ishga tushdi!")
     while True:
         now = datetime.now(TZ)
-        await client(UpdateProfileRequest(first_name=f"> time: {now.strftime('%H:%M')}"))
+        await client(UpdateProfileRequest(first_name=f"> ᴛɪᴍᴇ: {now.strftime('%H:%M')}"))
         print(f"✔ {now.strftime('%H:%M')}")
         
         # Keyingi daqiqaning boshigacha kutish
