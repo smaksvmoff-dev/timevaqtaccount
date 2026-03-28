@@ -1,5 +1,6 @@
 from telethon import TelegramClient
 from telethon.sessions import StringSession
+from telethon.tl.functions.account import UpdateProfileRequest
 import asyncio
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -18,7 +19,7 @@ async def update_name():
     print("✅ Ishga tushdi!")
     while True:
         now = datetime.now(TZ).strftime("%H:%M")
-        await client.edit_profile(first_name=f"> time: {now}")
+        await client(UpdateProfileRequest(first_name=f"> time: {now}"))
         print(f"✔ {now}")
         await asyncio.sleep(60)
 
