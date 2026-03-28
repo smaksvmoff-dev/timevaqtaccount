@@ -18,10 +18,13 @@ async def update_name():
     await client.start()
     print("✅ Ishga tushdi!")
     while True:
-        now = datetime.now(TZ).strftime("%H:%M")
-        await client(UpdateProfileRequest(first_name=f"> time: {now}"))
-        print(f"✔ {now}")
-        await asyncio.sleep(60)
+        now = datetime.now(TZ)
+        await client(UpdateProfileRequest(first_name=f"> time: {now.strftime('%H:%M')}"))
+        print(f"✔ {now.strftime('%H:%M')}")
+        
+        # Keyingi daqiqaning boshigacha kutish
+        seconds_left = 60 - now.second
+        await asyncio.sleep(seconds_left)
 
 with client:
     client.loop.run_until_complete(update_name())
