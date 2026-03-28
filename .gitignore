@@ -1,0 +1,5 @@
+.env
+*.session
+session.session
+get_session.py
+__pycache__/
